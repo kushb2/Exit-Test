@@ -1,6 +1,5 @@
 package io.nagarro.exit.service;
 
-import org.crsh.shell.impl.command.system.help;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -10,7 +9,7 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
-import scala.annotation.meta.setter;
+
 
 @Service
 public class ClientService {

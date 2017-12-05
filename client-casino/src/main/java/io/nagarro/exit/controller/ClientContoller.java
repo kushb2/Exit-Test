@@ -114,7 +114,7 @@ public class ClientContoller {
 		if (accountBal >= totalBetAmount * 1.0) {
 			int rouletteNumber = RandomNumerGenrator.genrate();
 			System.out.println(rouletteNumber);
-			 clientService.blockBetAmount(totalBetAmount);
+//			 clientService.blockBetAmount(totalBetAmount);
 
 			System.out.println(rouletteNumber);
 			model.put("rouletteNumber", rouletteNumber);

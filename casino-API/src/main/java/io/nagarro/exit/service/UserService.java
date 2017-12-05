@@ -63,9 +63,9 @@ public class UserService {
 	public User updateBalance(User user) {
 		System.out.println("updateBalance");
 		// TODO Auto-generated method stub
-		int amount = user.getBlockedAmount();
-		user.setBlockedAmount(0);
-		user.setAccountBal(user.getAccountBal() + amount);
+//		int amount = user.getBlockedAmount();
+//		user.setBlockedAmount(0);
+//		user.setAccountBal(user.getAccountBal() + amount);
 		return userRepository.save(user);
 	}
 
