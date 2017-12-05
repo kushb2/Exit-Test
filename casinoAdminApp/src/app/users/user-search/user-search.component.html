@@ -1,0 +1,99 @@
+<div class="row">
+
+  <h3 style="margin-left: 15px;">Filter Users</h3>
+
+  <form #f = "ngForm">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="name">Name : </label>
+      <input type="text" id="name" name="name" [(ngModel)] = "this.searchName" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email ID : </label>
+      <input type="text" id="email" name="email" [(ngModel)] = "this.searchEmail" class="form-control">
+    </div>
+
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="contact">Contact : </label>
+      <input type="text" id="contact" name="contact" [(ngModel)] = "this.searchContact" class="form-control">
+    </div>
+
+      <button style="margin-top: 25px;" class="btn btn-primary" (click)="clearSearch(f)">Clear Filter</button>
+
+  </div>
+  </form>
+</div>
+
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<div class="table table-responsive table-hover">
+  <table class="table ">
+
+    <thead style="color: #42A948">
+    <tr>
+      <th>Serial No</th>
+      <th>Name</th>
+      <th>DOB</th>
+      <th>Contact</th>
+      <th>Email</th>
+      <th>Balance(INR)</th>
+      <th>Recharge</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr *ngFor=" let i = index; let user of this.users  | filterByName: searchName |  filterByContact: searchContact | filterByEmail: searchEmail ">
+      <td>{{i+1}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.dob}}</td>
+      <td>{{user.contactNo}}</td>
+      <td>{{user.emailId}}</td>
+      <td>{{user.accountBal}}</td>
+      <td><button  type="button " class=" glyphicon glyphicon-plus" (click)="recharge(i)"></button> </td>
+
+    </tr>
+
+    </tbody>
+
+  </table>
+</div>
+
+<div id="myModal" class="modal-sm" >
+
+  <!-- Modal content -->
+  <form class="modal-content" #submit="ngForm" *ngIf="showMsg == true">
+    <span (click)="showMsg=false" class="close" >&times;</span>
+    <p>Recharge {{slectedUser.name}}</p>
+    <input class="form-control" type="number" id="amount" name="amount" pattern="^(?!0*(\.0+)?$)(\d+|\d*\.\d+)$" [(ngModel)]="rechargeAmount" #amount="ngModel" placeholder="Enter Amount" required>
+    <div *ngIf="amount.errors && (amount.dirty || amount.touched)" class="alert alert-danger">
+      <div [hidden]="!amount.errors.required">
+        Amount is required!
+      </div>
+      <div [hidden]="!amount.errors.pattern">
+        Amount greater than Zero
+      </div>
+    </div>
+    <br>
+    <div>
+      <button type="button" class="btn btn-success" data-dismiss="modal" (click)="performRecharge()" [disabled]="!submit.form.valid">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

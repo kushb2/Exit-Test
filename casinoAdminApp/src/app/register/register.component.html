@@ -1,0 +1,82 @@
+
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form  #submit="ngForm" #submit = "ngForm" >
+
+      <div class="form-group">
+      <label for="name">Name: </label>
+      <input placeholder="Enter name" type="text" id="name" class="form-control" name="name"
+             [(ngModel)]="this.model.name" #name="ngModel" required pattern="[a-zA-Z ]*">
+      </div>
+        <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+          <div [hidden]="!name.errors.required">
+            Name is required!
+          </div>
+        <div [hidden]="!name.errors.pattern">
+          Name can Have only  Alphabets and spaces only!
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="dob">Date Of Birth : </label>
+        <input  placeholder="Enter Date Of Birth" type="date" id="dob"
+               name="dob"  class="form-control" [(ngModel)]="this.model.dob" #dob="ngModel" required>
+      </div>
+        <div *ngIf=" dob.errors && (dob.dirty || dob.touched)" class="alert alert-danger" >
+          <div [hidden]="!dob.errors.required" >
+           Age is Mandatory
+          </div>
+          <!--<div *ngIf="!dob.errors.validateDate" class="alert alert-danger">-->
+            <!--Minimum age 18+ required-->
+          <!--</div>-->
+        </div>
+
+
+      <div class="form-group">
+        <label for="contact">Contact Number : </label>
+        <input  placeholder="Enter Contact Number" type="number" id="contact"  name="contact"
+                [(ngModel)]="this.model.contactNo" class="form-control" #contact = "ngModel"
+                required  pattern="\d{10}"  >
+      </div>
+      <div *ngIf="contact.errors && ( contact.dirty || contact.touched)" class="alert alert-danger" >
+        <div [hidden]="!contact.errors.required" >
+         Contact number Required
+        </div>
+        <div [hidden]="!contact.errors.pattern">
+          must be 10 digit Long
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="email">Email ID : </label>
+        <input placeholder="Enter Email ID" type="email" id="email"  name="email"
+               [(ngModel)]="this.model.emailId" class="form-control" #email = "ngModel"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required >
+      </div>
+      <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+        <div [hidden]="!email.errors.required" >
+          Email Required
+        </div>
+        <div [hidden]="!email.errors.pattern " >
+          Must be a valid Email
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+      <label for="identityFilePath">Identity Proof</label>
+      <input  (click)="abc()" placeholder="Enter Identity Proof" id="identityFilePath" type="file"  name = "identityFilePath"  class="form-control btn btn-primary"  style="float: right" (change)="getFiles($event)"  #image>
+      <!--<div *ngIf=" image.touched" class="alert alert-danger">-->
+        <div *ngIf="isImage"class="alert alert-danger">
+          Identity Proof is Required
+        </div>
+      </div>
+
+      <button style="margin-top: 10px" class="btn btn-success" (click)="onRegister()" [disabled] = "!submit.form.valid" >Register</button>
+    </form>
+  </div>
+</div>
+
