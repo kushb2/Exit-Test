@@ -112,27 +112,29 @@ public class ClientContoller {
 		System.out.println(accountBal);
 		System.out.println(totalBetAmount * 1.0);
 		if (accountBal >= totalBetAmount * 1.0) {
-			int rouletteNumber = RandomNumerGenrator.genrate();
-			System.out.println(rouletteNumber);
+			int randomNo = RandomNumerGenrator.genrate();
+			System.out.println(randomNo);
 //			 clientService.blockBetAmount(totalBetAmount);
 
-			System.out.println(rouletteNumber);
-			model.put("rouletteNumber", rouletteNumber);
+			System.out.println(randomNo);
+			model.put("rouletteNumber", randomNo);
 
-			int resultamount = clientService.checkResult(betAmount, rouletteNumber);
+			
+			Double res = clientService.checkResult(betAmount, randomNo);
 
-			model.put("awardedMoney", resultamount);
-			int updatedBalance = resultamount - totalBetAmount;
-			System.out.println(updatedBalance);
-			model.put("updatedAmountBalance", updatedBalance);
-			clientService.UpdateBalace(updatedBalance);
-			session.setAttribute("useraccountbalance", updatedBalance);
+			model.put("win", res);
+			int updatedBal = (int) (res - totalBetAmount);
+			System.out.println(updatedBal);
+			model.put("updatedBal", updatedBal);
+			clientService.UpdateBalace(updatedBal);
+			session.setAttribute("useraccountbalance", updatedBal);
 
-			return "result";
+			return "res";
 		} else {
 			System.out.println("else Part");
-			return "sorry";
+			return "fali";
 		}
+		
 
 	}
 

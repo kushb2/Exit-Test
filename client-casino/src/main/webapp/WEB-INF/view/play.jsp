@@ -14,7 +14,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-function validate()
+function checkValidate()
 {
     var first = document.getElementById("first");
     var second = document.getElementById("second");
@@ -25,14 +25,7 @@ function validate()
     var even = document.getElementById("even");
     var odd = document.getElementById("odd");
     
-   var firstValue = document.getElementById("first").value;
-  var secondValue = document.getElementById("second").value;
-  var thirdValue = document.getElementById("third").value;
-  var fourthValue = document.getElementById("fourth").value;
-  var fifthValue = document.getElementById("fifth").value;
-  var sixthValue = document.getElementById("sixth").value;
-  var evenValue = document.getElementById("even").value;
-  var oddValue = document.getElementById("odd").value;
+   
     var valid = true;
     if(first.value.length<=0 && second.value.length<=0 && third.value.length<=0 && fourth.value.length<=0 && fifth.value.length<=0 && sixth.value.length<=0 && even.value.length<=0 && odd.value.length<=0)
         {
@@ -101,7 +94,7 @@ function validate()
  
 <!--   ............................................................ -->
 
-	 <form action="/result" method="post" onsubmit=" return validate()" >    
+	 <form action="/result" method="post" onsubmit=" return checkValidate()" >    
 	   <div class="luckyvalues">
      			<div class="firstrow">
      			<!-- <label>1st 12</label> -->
@@ -170,14 +163,14 @@ function validate()
 			<div class="modal-content">
 				<div class="modal-header">
 					
-					<h4 class="modal-title">Try Your Luck</h4>
+					<p class="modal-title">Try Your Luck</p>
 				</div>
 				<div class="modal-body">
-					<p>Are you sure!</p>
+					<p>want to continue!</p>
 				</div>
 				<div class="modal-footer">
-				    <button type="submit" class="btn btn-info">Sure</button>
-					<button type="button" class="btn btn-info" data-dismiss="modal">No</button>
+				    <button type="submit" class="btn btn-primary">Yes</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
 				</div>
 			</div>
 		</div>

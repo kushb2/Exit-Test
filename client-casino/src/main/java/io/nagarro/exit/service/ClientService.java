@@ -41,11 +41,10 @@ public class ClientService {
 		.header("Content-Type", "application/json").body(user).asJson();
 	}
 	
-	public void UpdateBalace(double updatedAccountBal) throws UnirestException, JSONException {
+	public void UpdateBalace(double updatedBal) throws UnirestException, JSONException {
 		Double accountBal = Double.parseDouble(user.get("accountBal").toString());
 		System.out.println(accountBal);
-//		System.out.println(totalBetAmount * 1.0);
-		user.put("accountBal", updatedAccountBal + accountBal);
+		user.put("accountBal", updatedBal + accountBal);
 		
 		System.out.println(user.toString());
 		System.out.println(user);
@@ -61,54 +60,61 @@ public class ClientService {
 
 
 
-	public int checkResult(int[] betValues, int rouletteNumber) {
-		int resultAmount=0;
-		for(int betNumber=0; betNumber<betValues.length; betNumber++)
-		{
-			if(betNumber==0 && (rouletteNumber>=1 && rouletteNumber<=12) && betValues[betNumber]!=0)
-			{
-				resultAmount+=(betValues[betNumber]*3/2);
-			}
-			if(betNumber==1 && (rouletteNumber>=13 && rouletteNumber<=24) && betValues[betNumber]!=0)
-			{
-				resultAmount+=(betValues[betNumber]*3/2);
-			}
-			if(betNumber==2 && (rouletteNumber>=25 && rouletteNumber<=36) && betValues[betNumber]!=0)
-			{
-				resultAmount+=(betValues[betNumber]*3/2);
-			}
-			if(betNumber==3 && (rouletteNumber==0 ) && betValues[betNumber]!=0)
-			{
-				resultAmount+=(betValues[betNumber]*10);
-			}
-			if(betNumber==4 && (rouletteNumber>=1 && rouletteNumber<=18) && betValues[betNumber]!=0)
-			{
-				resultAmount+=(betValues[betNumber]*5/4);
-			}
-			if(betNumber==5 && (rouletteNumber>=19 && rouletteNumber<=36) && betValues[betNumber]!=0)
-			{
-				resultAmount+=(betValues[betNumber]*5/4);
-			}
-			if(betNumber==6 && (rouletteNumber%2==0) && betValues[betNumber]!=0)
-			{
-				resultAmount+=(betValues[betNumber]*5/4);
-			}
-			if(betNumber==7 && (rouletteNumber%2!=0) && betValues[betNumber]!=0)
-			{
-				resultAmount+=(betValues[betNumber]*5/4);
-			}
+	public double checkResult(int[] betArray, int randomNo) {
 		
+		double res = 0L;
+		for(int betIndex =0 ; betIndex < betArray.length  ; betIndex++) {
+			switch(betIndex) {
+			case 0:
+				if(randomNo >=1 && randomNo <= 12)
+					
+					res += betArray[betIndex]*1.5;
+				break;
+		
+			case 1:
+				if(randomNo >=13 && randomNo <= 24)
+					res += betArray[betIndex]*1.5;
+				break;
+		
+				
+			case 2:
+				if(randomNo >=25 && randomNo <= 36)
+					res += betArray[betIndex]*1.5;
+				break;
+		
+				
+			case 3:
+				if(randomNo == 0)
+					res += betArray[betIndex]*10;
+				break;
+		
+				
+			case 4:
+				if(randomNo >=1 && randomNo <= 18)
+					res += betArray[betIndex]*1.25;
+				break;
+		
+				
+			case 5:
+				if(randomNo >=19 && randomNo <= 36)
+					res += betArray[betIndex]*1.25;
+				break;
+		
+				
+			case 6:
+				if(randomNo%2 == 0)
+					res += betArray[betIndex]*1.25;
+				break;
+				
+			case 7:
+				if(randomNo%2 != 0)
+					res += betArray[betIndex]*1.25;
+				break;
 		}
-		// TODO Auto-generated method stub
-	
-		return resultAmount;
-		
-		
+			
 	}
-	
-
-	
-
-
-	
+		return res;
+	}
 }
+
+	

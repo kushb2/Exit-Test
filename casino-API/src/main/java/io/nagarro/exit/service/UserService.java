@@ -19,33 +19,27 @@ public class UserService {
 	
 	
 	public String sayHi() {
-		// TODO Auto-generated method stub
 		return "hello";
 	}
 
 
 	public User register(User user) {
-		// TODO Auto-generated method stub
 		user.setSecretID(new Date().getTime());
 		return userRepository.save(user);
 	}
 
 
 	public List<User> getAllUser() {
-		// TODO Auto-generated method stub
 			return (List<User>) userRepository.findAll();
 	}
 
 
 	public User doRecharge(User user) {
-		// TODO Auto-generated method stub
 		return userRepository.save(user);
 	}
 
 
 	public User getUser(Long id) {
-		System.out.println(id);
-		
 		User user =  userRepository.findBysecretID(id);
 		user.setAccountBal(user.getAccountBal() + user.getBlockedAmount());
 		user.setBlockedAmount(0);
@@ -55,17 +49,12 @@ public class UserService {
 
 
 	public User BlockBetAmount(User user) {
-		// TODO Auto-generated method stub
 		return userRepository.save(user);
 	}
 
 
 	public User updateBalance(User user) {
 		System.out.println("updateBalance");
-		// TODO Auto-generated method stub
-//		int amount = user.getBlockedAmount();
-//		user.setBlockedAmount(0);
-//		user.setAccountBal(user.getAccountBal() + amount);
 		return userRepository.save(user);
 	}
 

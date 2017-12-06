@@ -69,8 +69,6 @@ public class User {
 		this.emailId = emailId;
 	}
 
-	
-
 	public Long getSecretID() {
 		return secretID;
 	}
@@ -79,8 +77,8 @@ public class User {
 		this.secretID = secretID;
 	}
 
-	public User(int id, String name, Date dob, String contactNo, String emailId, String identityFilePath, Double accountBal,
-			int blockedAmount, Long secretID) {
+	public User(int id, String name, Date dob, String contactNo, String emailId, String identityFilePath,
+			Double accountBal, int blockedAmount, Long secretID) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -95,8 +93,6 @@ public class User {
 	public Double getAccountBal() {
 		return accountBal;
 	}
-
-	
 
 	public User() {
 		super();

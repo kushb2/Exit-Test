@@ -16,27 +16,26 @@
 </head>
 <body>
 <div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Error!!</h4>
-            </div>
+    <div  class="modal-dialog">
+        <div style="width: 50%" class="modal-content">
             <div class="modal-body">
-                          
-
                     <div class="form-group">
-                        <h3>Sorry Dear !!! </h3>
+                       <p>You have insufficient amount of balance in your account.</p>
                     </div>
-                    <div class="form-group">
-                       <h3>You have insufficient amount of balance in your account.</h3>
-                    </div>
+                    
+                    <div class = "row">
+    				<div class="col-md-4">
                     <form action="/logout" method="post">
                     <button type="submit" class="btn btn-primary">Close</button>
                     </form>
+                    </div>
+                    <div class="col-md-4">
                     <form action="/valid" method="post"  >
                      <input type="hidden" name="userID" value=${id} >
                     <button type="submit" class="btn btn-primary">Reset Game</button>
                     </form>
+                    </div>
+                    </div>
                
             </div>
         </div>

@@ -15,42 +15,51 @@
        });
 </script>
 
-<script>
-
-</script>
 
 </head>
 <body>
 
 
 <div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <div class="modal-dialog ">
+        <div style="width: 60%" class="modal-content ">
+            <!-- <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Try Your Luck</h4>
-            </div>
+            </div> -->
             <div class="modal-body">
                           
                 <div>
                     <div class="form-group">
-                        <h3>Your Lucky number is ${rouletteNumber} </h3>
+                        <p>Your Lucky number is ${rouletteNumber} </p>
                     </div>
                     <div class="form-group">
-                   <c:if test = "${updatedAmountBalance > 0}">
-                          You have won Rs ${awardedMoney} money.
+                   <c:if test = "${updatedBal > 0}">
+                          winning Amount ${win} .
                     </c:if>
-                    <c:if test = "${updatedAmountBalance <= 0}">
-                          Sorry you lost.
+                    <c:if test = "${updatedBal <= 0}">
+                          Lost.
                     </c:if>
                     </div>
+                    
+                <!--      <div class="row">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>-->
+    				<div class = "row">
+    				<div class="col-md-4">
                     <form action="/logout" method="post">
                     <button type="submit" class="btn btn-primary">Exit</button>
                     </form>
+                    	</div>
+                    	<div class="col-md-4">
                      <form action="/valid" method="post"  >
                      <input type="hidden" name="userID" value=${id} >
                     <button type="submit" class="btn btn-primary">Play Again</button>
                     </form>
+                    </div>
+                    </div>
+                   
                 </div>
             </div>
         </div>
