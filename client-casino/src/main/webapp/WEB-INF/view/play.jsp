@@ -100,15 +100,18 @@ function checkValidate()
      			<!-- <label>1st 12</label> -->
 				
 				<div class="col-sm-4">
-				 <input type="number"  name="first" placeholder="1st 12" id="first" min=0 step=500>
+				<label for = "first" style="color: green;">1st 12 : </label>
+				 <input type="number"  name="first"  id="first" min=0 step=500>
 				</div>
 				
 				<div class="col-sm-4">
-				 <input type="number"  name="second" placeholder="2nd 12" id="second" min=0 step=500>
+				<label for = "second" style="color: green;">2nd 12 : </label>
+				 <input type="number"  name="second"  id="second" min=0 step=500>
 				</div>
 				
 				<div class="col-sm-4">
-				  <input type="number" placeholder="3rd 12" name="third" id="third" min=0 step=500>
+				<label for = "third" style="color: green;">3rd 12 : </label>
+				  <input type="number"  name="third" id="third" min=0 step=500>
 				</div>
 
 
@@ -119,15 +122,18 @@ function checkValidate()
 			<div class="secondrow">
 			
 				<div class="col-sm-4">
-				 <input type="number" name="fourth" placeholder="Zero" id="fourth" min=0 step=500>
+				<label for = "fourth" style="color: green;">Zero :   </label>
+				 <input type="number" name="fourth"  id="fourth" min=0 step=500>
 				</div>
 				
 				<div class="col-sm-4">
-				 <input type="number" placeholder="1-18"  name="fifth" id="fifth" min=0 step=500>
+				<label for = "fifth" style="color: green;">1-18 : </label>
+				 <input type="number"   name="fifth" id="fifth" min=0 step=500>
 				</div>
 				
 				<div class="col-sm-4">
-				 <input type="number" placeholder="19-36" name="sixth" id="sixth" min=0 step=500>
+				<label for = "sixth" style="color: green;">19-36 : </label>
+				 <input type="number"  name="sixth" id="sixth" min=0 step=500>
 				</div>
 
 
@@ -138,11 +144,13 @@ function checkValidate()
 			<div class="thirdrow">
 			
 				<div class="col-sm-4">
-			    <input type="number" placeholder="even" name="even" id="even" min=0 step=500>
+				<label for = "even" style="color: green;">even : </label>
+			    <input type="number"  name="even" id="even" min=0 step=500>
 				</div>
 				
 				<div class="col-sm-4">
-				 <input type="number" placeholder="odd" name="odd" id="odd" min=0 step=500>
+				<label for = "odd" style="color: green;">odd : </label>
+				 <input type="number"  name="odd" id="odd" min=0 step=500>
 				</div>
 				
 				<div class="col-sm-4">
