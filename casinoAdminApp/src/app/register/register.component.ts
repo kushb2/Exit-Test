@@ -85,9 +85,13 @@ export class RegisterComponent implements OnInit {
   }
 
   checkDob() {
-   const no: any = this.model.dob.substr(0, 4);
+   const no: any = this.model.dob.toString().substr(0, 4);
 
     const val: number = 2017 - no ;
+    console.log(this.model.dob.toString().length);
+  if (this.model.dob.toString().length >  10) {
+    return 'not a valid Date';
+  }
     if (val < 18) {
       return 'Date of Birth must be 18+';
     }
@@ -96,16 +100,25 @@ export class RegisterComponent implements OnInit {
 
 
 
-  onRegister() {
+  onRegister(form) {
    const res: string =  this.checkDob();
    if (res.length > 0) {
      alert(res);
      return;
    }
+   if (!(this.model.identityFilePath.endsWith('.jpg') || this.model.identityFilePath.endsWith('jpeg'))) {
+     alert('identiy Proof file format must be jpg or jpeg');
+     return;
+   }
      this.model.blockedAmount = 0;
      this.model.accountBal = 500;
      const body =  JSON.stringify(this.model);
-     this.dataStoreService.registerUser(body);
+     this.dataStoreService.registerUser(body).subscribe(
+       (user : UserModel) => {
+         console.log(user);
+         form.reset();
+       }
+     );
   }
 }
 

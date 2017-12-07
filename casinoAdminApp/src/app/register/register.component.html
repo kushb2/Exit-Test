@@ -1,7 +1,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <form  #submit="ngForm" #submit = "ngForm" >
+    <form  #submit = "ngForm" >
 
       <div class="form-group">
       <label for="name">Name: </label>
@@ -75,7 +75,7 @@
         </div>
       </div>
 
-      <button style="margin-top: 10px" class="btn btn-success" (click)="onRegister()" [disabled] = "!submit.form.valid" >Register</button>
+      <button style="margin-top: 10px" class="btn btn-success" (click)="onRegister(submit)" [disabled] = "!submit.form.valid" >Register</button>
     </form>
   </div>
 </div>

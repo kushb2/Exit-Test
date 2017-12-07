@@ -29,7 +29,7 @@ export class UserService {
   addUser(user: UserModel) {
     console.log('hello');
     console.log(user);
-    this.users.push(user);
+    // this.users.push(user);
   }
 
 

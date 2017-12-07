@@ -22,13 +22,13 @@ export class DataStorageService {
       const user: UserModel = responce.json();
         return user;
       }
-      )
-      .subscribe(
-      (userr: UserModel) => {
-        this.userService.addUser(userr);
-        this.userService.addedUser = userr;
-      }
-    );
+      );
+      // .subscribe(
+      // (userr: UserModel) => {
+      //   this.userService.addUser(userr);
+      //   this.userService.addedUser = userr;
+      // }
+    // );
   }
 
 

@@ -42,7 +42,8 @@ export class UserSearchComponent implements OnInit {
 
   performRecharge() {
     console.log('performRecharge');
-    this.slectedUser.accountBal += this.rechargeAmount;
+    this.slectedUser.accountBal =   +  this.rechargeAmount.toFixed(2) + this.slectedUser.accountBal;
+
     const body =  JSON.stringify(this.slectedUser);
     this.dataService.recharge(this.slectedUser).subscribe(
       (res) => {
