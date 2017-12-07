@@ -9,6 +9,9 @@ import io.nagarro.exit.model.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
 
+	/*
+	 * filter a user by SectreID parameter
+	 */
 	User findBysecretID(Long secretID);
 
 }

@@ -31,7 +31,7 @@
                           
                 <div>
                     <div class="form-group">
-                        <p>Your Lucky number is ${rouletteNumber} </p>
+                        <p>Your Lucky number is ${rouletteNo} </p>
                     </div>
                     <div class="form-group">
                    <c:if test = "${updatedBal > 0}">

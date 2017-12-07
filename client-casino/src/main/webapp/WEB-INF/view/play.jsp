@@ -95,7 +95,7 @@ function checkValidate()
 <!--   ............................................................ -->
 
 	 <form action="/result" method="post" onsubmit=" return checkValidate()" >    
-	   <div class="luckyvalues">
+	   <div >
      			<div class="firstrow">
      			<!-- <label>1st 12</label> -->
 				

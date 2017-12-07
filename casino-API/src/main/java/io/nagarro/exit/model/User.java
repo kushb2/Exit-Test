@@ -18,6 +18,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/*
+ * user 
+ */
 @Entity
 @Table(name = "user")
 public class User {
